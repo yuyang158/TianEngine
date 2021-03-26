@@ -52,26 +52,29 @@
 	#define TIAN_PLATFORM_MACOSX 0
 #endif
 
-#include <GenericPlatformTypes.h>
-
-typedef GenericPlatformTypes::int8 int8;
-typedef GenericPlatformTypes::int16 int16;
-typedef GenericPlatformTypes::int32 int32;
-typedef GenericPlatformTypes::int64 int64;
-
-typedef GenericPlatformTypes::uint8 uint8;
-typedef GenericPlatformTypes::uint16 uint16;
-typedef GenericPlatformTypes::uint32 uint32;
-typedef GenericPlatformTypes::uint64 uint64;
-
 // Turns an preprocessor token into a real string (see UBT_COMPILED_PLATFORM)
 #define PREPROCESSOR_TO_STRING(x) PREPROCESSOR_TO_STRING_INNER(x)
 #define PREPROCESSOR_TO_STRING_INNER(x) #x
 
 // Concatenates two preprocessor tokens, performing macro expansion on them first
 #define PREPROCESSOR_JOIN(x, y) PREPROCESSOR_JOIN_INNER(x, y)
-#define PREPROCESSOR_JOIN_INNER(x, y) x##y
+#define PREPROCESSOR_JOIN_INNER(x, y) x/x##y
 
 #ifndef PLATFORM_INCLUDE_PATH
 #define PLATFORM_INCLUDE_PATH(IncludeFile) PREPROCESSOR_TO_STRING(PREPROCESSOR_JOIN(TIAN_PLATFORM_HEADER_NAME, IncludeFile))
 #endif // !PLATFORM_INCLUDE
+
+#include PLATFORM_INCLUDE_PATH(PlatformTypes.h)
+
+typedef PlatformTypes::int8 int8;
+typedef PlatformTypes::int16 int16;
+typedef PlatformTypes::int32 int32;
+typedef PlatformTypes::int64 int64;
+
+typedef PlatformTypes::uint8 uint8;
+typedef PlatformTypes::uint16 uint16;
+typedef PlatformTypes::uint32 uint32;
+typedef PlatformTypes::uint64 uint64;
+
+typedef PlatformTypes::SIZE_T SIZE_T;
+#undef size_t

@@ -30,5 +30,19 @@
     <ClInclude Include="Win\OS_win.h">
       <Filter>Header Files\Win</Filter>
     </ClInclude>
+    <ClInclude Include="Memory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Win\WinPlatform.h">
+      <Filter>Header Files\Win</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Win\WinAtomics.inl">
+      <Filter>Header Files\Win</Filter>
+    </None>
   </ItemGroup>
 </Project>

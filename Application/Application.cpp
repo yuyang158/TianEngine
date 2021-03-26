@@ -3,6 +3,8 @@
 
 #include "framework.h"
 #include "Application.h"
+#include "OS.h"
+#include <iostream>
 
 #define MAX_LOADSTRING 100
 
@@ -37,6 +39,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     {
         return FALSE;
     }
+
+    int32 i = 0;
+    // printf("%d", i);
+    std::cout << i << std::endl;
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_APPLICATION));
 
