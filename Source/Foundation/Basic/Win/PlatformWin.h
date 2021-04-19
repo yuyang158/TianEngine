@@ -1,0 +1,12 @@
+#pragma once
+
+#undef TIAN_PLATFORM_WINDOWS
+#define TIAN_PLATFORM_WINDOWS 1
+
+#ifdef _WIN64
+#undef TIAN_PLATFORM_64BIT
+#define TIAN_PLATFORM_64BIT 1
+#else
+#undef TIAN_PLATFORM_32BIT
+#define TIAN_PLATFORM_32BIT 1
+#endif

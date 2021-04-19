@@ -27,3 +27,15 @@
 
 // Other
 #define TIAN_PROFILING_ENABLED 0
+
+#if defined(_WINDOWS) || defined(_WIN32)
+#	include <Basic/Win/PlatformWin.h>
+#else
+#error "Unsupport OS"
+#endif
+
+#if defined(_MSC_VER)
+#	include <Basic/Compiler/MSVC.h>
+#endif
+
+#define TIAN_STATIC_CHECK(exp) static_assert(exp, TIAN_STRING(exp) "is false")

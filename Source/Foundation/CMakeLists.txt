@@ -6,7 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(Time)
 include_directories(Basic)
 
-list(APPEND SRC Time/Time.cpp)
+list(APPEND SRC Time/Time.cpp
+        IncludeAll.cpp)
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     # list(APPEND SRC Win/Time_win32.cpp)
