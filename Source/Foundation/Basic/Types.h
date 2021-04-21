@@ -1,4 +1,5 @@
 #pragma once
+#include <Basic/AllSystemMacros.h>
 
 using int8 = char;
 using int16 = short;
@@ -27,3 +28,16 @@ TIAN_STATIC_CHECK(sizeof(uint64) == 8);
 #else
 #define TIAN_ALIGNMENT_MINIMUM 4
 #endif
+
+#define TIAN_DISALLOW_COPY_AND_ASSIGN(type) \
+  type(const type&) = delete;             \
+  void operator=(const type&) = delete
+
+namespace Foundation {
+	class RTTI;
+	class NoBase
+	{
+	public:
+		static const RTTI* GetStaticRTTI() { return nullptr; }
+	};
+}

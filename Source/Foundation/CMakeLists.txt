@@ -3,14 +3,13 @@ cmake_minimum_required(VERSION 3.19)
 project(Foundation)
 
 set(CMAKE_CXX_STANDARD 17)
-include_directories(Time)
-include_directories(Basic)
-
-list(APPEND SRC Time/Time.cpp
-        IncludeAll.cpp)
+list(APPEND SRC
+        IncludeAll.cpp
+        Time/Time.cpp
+        Basic/RTTI.cpp)
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-    # list(APPEND SRC Win/Time_win32.cpp)
+    list(APPEND SRC Time/Win/TimeWin.cpp)
 endif()
 
 

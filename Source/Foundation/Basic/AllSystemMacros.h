@@ -27,6 +27,8 @@
 
 // Other
 #define TIAN_PROFILING_ENABLED 0
+#define TIAN_DEBUG_BUILD 0
+#define TIAN_RELEASE_BUILD 0
 
 #if defined(_WINDOWS) || defined(_WIN32)
 #	include <Basic/Win/PlatformWin.h>
@@ -38,4 +40,16 @@
 #	include <Basic/Compiler/MSVC.h>
 #endif
 
-#define TIAN_STATIC_CHECK(exp) static_assert(exp, TIAN_STRING(exp) "is false")
+#if defined(_DEBUG)
+#undef TIAN_DEBUG_BUILD
+#define TIAN_DEBUG_BUILD 1
+#else
+#undef TIAN_RELEASE_BUILD
+#define TIAN_RELEASE_BUILD 1
+#endif
+
+#ifndef __INTELLISENSE__
+#define TIAN_STATIC_CHECK(exp)
+#else
+#define TIAN_STATIC_CHECK(exp) static_assert(exp, TIAN_STRING(exp))
+#endif

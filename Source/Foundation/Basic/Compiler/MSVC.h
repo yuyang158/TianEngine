@@ -15,3 +15,6 @@
 #define TIAN_ALIGN(decl, alignment) __declspec(align(alignment)) decl
 #define TIAN_ALIGN_VARIABLE(decl, alignment) __declspec(align(alignment)) decl
 #endif
+
+#define TIAN_SOURCE_LINE __LINE__
+#define TIAN_SOURCE_FILE __FILE__

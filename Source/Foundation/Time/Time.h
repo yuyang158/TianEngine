@@ -1,11 +1,11 @@
 #pragma once
-#include <AllSystemMacros.h>
+#include <Basic/AllSystemMacros.h>
+#include <Subsystem/StaticSubSystem.h>
 
 namespace Foundation {
 	struct Time {
 	public:
-		
-	public:
+		static void Initialize();
 		static Time Now();
 
 		TIAN_FORCE_INLINE Time()
@@ -33,6 +33,7 @@ namespace Foundation {
 			: m_fTime(fTime) {}
 
 		double m_fTime;
+		TIAN_MAKE_SUBSYSTEM_STARTUP_FRIEND(Foundation, Time);
 	};
 #include <Time/Time.inl>
 }

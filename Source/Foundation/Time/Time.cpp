@@ -1,7 +1,12 @@
 #include "Time.h"
+#include <Subsystem/SubSystem.h>
 
 using namespace Foundation;
 
-Time Time::Now() {
-	return Foundation::Time();
+TIAN_BEGIN_SUBSYSTEM_DECLARATION(Foundation, Time)
+
+ON_BASESYSTEMS_STARTUP {
+	Foundation::Time::Initialize();
 }
+
+TIAN_END_SUBSYSTEM_DECLARATION;
